@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Search Engine - Searching Web Application</title>
+    <link rel="stylesheet" href="searching.css">
+  <link rel="stylesheet" href="ads.css">
+</head>
+<body>
+    <div class="alladcontainer" id="alladcontainer">
+        <div class="adh1" id="cancel">❌</div>
+        <h3 class="adh3">Hello Again</h3>
+        <p class="adp">This App Was Made By RAG Company Owned By Andre</p>
+        <button class="adbutton"><a href="login.html">Login</a></button>
+    </div>
+    <script>
+        let alladcontainer=document.getElementById("alladcontainer");
+        let cancel = document.getElementById("cancel").addEventListener('click',()=>{
+       alladcontainer.style.display="none";
+        });
+        setTimeout(()=>{
+            document.getElementById('alladcontainer').style.display="block";
+        },1000)
+    </script>
+    <div class="all">
+    <div class="settings-contents" >
+        <div>
+            <h1 class="logo">Image</h1>
+        </div>
+        <div class="settings" onclick="togglesetting1()" id="settings"></div>
+        <div class="setting2" onclick="togglesetting2()" id="setting2"></div>
+    </div>
+    <aside id="settings-menu">
+        <h3>Manage Settings</h3>
+        <ul>
+            <li onclick="toggleMode()"><h4>Dark/Light</h4></li>
+            <a href="login.html"><li><h4>Login</h4></li></a>
+            <a href="signup.html"><li><h4>SignUp</h4></li></a>
+            <li><h4>Logout</h4></li>
+        </ul>
+    </aside>
+    <h1>All Images Engine</h1>
+    <form action="" id="search-form">
+        <input type="text" id="search-box" placeholder="Search anything here...">
+        <button>Go</button>
+    </form>
+    <div class="search-result"></div>
+    <button id="show-more-btn">See Next</button>
+</div>
+    <script src="script.js"></script>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+        let settingsmenu = document.getElementById('settings-menu');
+        let setting2=document.getElementById('setting2')
+        let settings=document.getElementById('settings')
+        function togglesetting1() {
+            settingsmenu.style.display="block";
+        setting2.style.display="block";
+        settings.style.display="none";
+        }
+        function togglesetting2() {
+            settingsmenu.style.display="none";
+        settings.style.display="block";
+        setting2.style.display="none";
+          
+        }
+    </script>
+<script>
+    downloadBtn.onclick = function () {
+    try {
+        fetch(result.urls.full)
+            .then((res) => {
+                if (!res.ok) {
+                    throw new Error('Failed to fetch the image Ask RAG Company.');
+                }
+                return res.blob();
+            })
+            .then((blob) => {
+                const link = document.createElement("a");
+                link.href = URL.createObjectURL(blob);
+                link.download = result.alt_description || "image"; // Default name
+                link.click();
+            })
+            .catch((error) => {
+                console.error("Download failed:", error);
+                alert("There was an error with the download. Please try again or Ask RAG Company!");
+            });
+    } catch (error) {
+        console.error("Download failed:", error);
+        alert("There was an error with the download. Please try again or Ask RAG Company!");
+    }
+};
+
+</script>
+</body>
+</html>
